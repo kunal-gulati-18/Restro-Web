@@ -174,7 +174,7 @@ body
 
 
 #menu-tile{
-  background: url(/images/menu-tile.jpg)no-repeat;
+  background: url('../images/menu-tile.jpg') no-repeat;
   background-position: center;
   background-size: cover;
   margin-left: 180px;
@@ -183,7 +183,7 @@ body
 }
 
 #specials-tile{
-  background: url(/images/specials-tile.jpg)no-repeat;
+  background: url('../images/specials-tile.jpg') no-repeat;
   background-position: center;
   background-size: cover;
   margin-left: 190px;
