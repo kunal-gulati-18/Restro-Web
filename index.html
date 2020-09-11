@@ -1,0 +1,878 @@
+<!Doctype html>
+<html>
+    <head>
+
+        <title>Restaurant Website</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="css/aos.css"> 
+        
+
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/demo.css"> <!-- Resource style -->
+        <!-- <link rel="stylesheet" href="css/reset.css"> -->
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+        <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+        <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+
+        <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+        <link rel="stylesheet" type="text/css" href="css/util.css">
+      <link rel="stylesheet" type="text/css" href="css/form.css">
+      <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap" rel="stylesheet">
+         <!-- jQuery library -->
+        <script src="js/jquery.min.js"></script>
+
+    
+         
+   
+
+
+<!-- Latest compiled JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="js/ajax-utils.js"></script>  
+        
+        <script>
+          // Note: This example requires that you consent to location sharing when
+          // prompted by your browser. If you see the error "The Geolocation service
+          // failed.", it means you probably did not give permission for the browser to
+          // locate you.
+          var map, infoWindow;
+          
+            
+      
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+                };
+      
+                console.log(pos.lat);
+                console.log(pos.lng);
+                document.getElementById("lati").value=pos.lat;
+                document.getElementById("longi").value=pos.lng;
+                
+                
+               
+              }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+              });
+            } else {
+              // Browser doesn't support Geolocation
+              handleLocationError(false, infoWindow, map.getCenter());
+            }
+          
+      
+          function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                                  'Error: The Geolocation service failed.' :
+                                  'Error: Your browser doesn\'t support geolocation.');
+            
+          }
+    
+         
+        </script>
+
+        <script src="js/script.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/cart.js"></script>
+         <!-- Resource JavaScript -->
+    
+        
+    </head>
+
+ <body onload="cartbottomshow();">
+
+<header>
+    
+<nav id="header-nav" class="navbar navbar-default">
+ <div class="container">
+<div class="navbar-header">
+<a href="index.html" class="pull-left visible-md visible-lg">
+<div id="logo-img" alt="logo image">
+    </div>
+ </a>  
+ <div class="navbar-brand"><!--use for branding like name of company ke liye we use it-->
+ <a href="index.html" class="">
+<h1>RESTRO</h1>
+<h4>touch-safe</h4>
+ </a>  
+ </div>
+ 
+  <!-- Toggler/collapsibe Button -->
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false" id="navbarToggle">
+        <span class="sr-only">Toggle navigation</span>
+        <!--vo jo teen dande aate hai unke liye-->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+</div>
+<div id="collapsable-nav" class="collapse navbar-collapse">
+<ul id="nav-list" class="nav navbar-nav navbar-right">
+     
+     <li class="active" id="navhomebutton">
+      <a href="index.html">
+          <span class="glyphicon glyphicon-home">
+
+          </span><br class="hidden-xs">
+          
+          Home</a>
+    </li>
+     
+     <li class="nav-item" id="navmenubutton">
+      <a class="menu-categories.html" onclick="$dc.loadMenuCategories()" id="menu-anchor">
+          <span class="glyphicon glyphicon-cutlery">
+
+          </span><br class="hidden-xs">
+          
+          Menu</a>
+    </li>
+
+     <li class="nav-item" id="navaboutbutton">
+      <a class="menu-categories.html" onclick="$dc.loadaboutpage()">
+          <span class="glyphicon glyphicon-info-sign">
+
+          </span><br class="hidden-xs">
+          
+          About</a>
+    </li>
+
+     
+     <li id="phone" class="hidden-xs">
+      <a href="tel:8700519840">
+          <span class="glyphicon glyphicon-earphone">
+                
+          </span>8700519840</a><!--<div>*We deliver</div>-->
+    </li>
+  </ul>
+</div>    
+
+</div>
+</nav>
+</header>
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><span class="fas fa-chevron-circle-up"></span></button>
+
+
+<!--move to top button-->
+<!-- <button onclick="topFunction()" id="myBtn" title="Go to top"><span class="glyphicon glyphicon-arrow-up"></span></button> -->
+
+<div class="loader">
+  <div class="loading">
+  </div>
+</div>
+
+<!-- <div id="phone-content" class="container visible-xs">
+<div class="jumbotron" id="jumbo">
+ <a href="tel:8700519840">
+          <span class="glyphicon glyphicon-earphone">
+              
+          </span>8700519840</a><div style="color:black;"></div>
+          
+</div>
+</div> -->
+
+
+
+<div id="main-content">
+
+
+
+<!--<div class="jumbotron" >
+<img src="images/restaurant1.jpg" alt="Picture of restaurant" class="img-responsive visible-xs">
+
+
+</div>
+
+<div class="row" id="home-tiles">
+<div class="col-md-4 col-sm-6 col-xs-12">
+
+    <a onclick="spinnerfunc2()"><div id="menu-tile" data-aos="fade-left visible-sm"><span>menu</span></div></a>
+</div>
+<div class="col-md-4 col-sm-6 col-xs-12 ">
+<a onclick="spinnerfunc3()"><div id="specials-tile" data-aos="fade-right visible-sm"><span>specials</span></div></a>
+    
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+    <a href="https://goo.gl/maps/VPBV86f9D9bDER8L6" target="_blank">
+             <div id="map-tile" data-aos="fade-left visible-sm">
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.1343678862504!2d77.25775421399204!3d28.535680695210907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3df7d51daa5%3A0x9f71143ef2f4e89f!2sGulati%20Book%20Depot!5e0!3m2!1sen!2sin!4v1592379999496!5m2!1sen!2sin" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+           
+                   <span>Map</span>
+            </div>
+
+    </a>
+</div>
+</div>-->
+
+</div><!--end container-->
+<div id="main-content2">
+
+
+</div>
+
+<section class="sc-4tpsxe-7 fDVHVC cartbottom">
+        
+  <div class="sc-4tpsxe-4 bPNqo">
+
+  </div>
+<div class="sc-4tpsxe-5 jUmUpU">
+  <div class="sc-1mo3ldo-0 sc-4tpsxe-0 eJYvof">
+      <div class="pd6v2f-1 imUFwv">
+          <span>
+              <i class="rbbb40-1 MxLSp pd6v2f-0 fEEnlb" size="10" color="#1C1C1C"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="10" height="10" viewBox="0 0 20 20" aria-labelledby="icon-svg-title-DownTriangle icon-svg-desc-DownTriangle" role="img" class="rbbb40-0 fdFvgA">
+                      <linearGradient id="ckd1f7x3b019s3a6tlqbejfc0" x1="0" x2="100%" y1="0" y2="0">
+                          <stop offset="0" stop-color="#1C1C1C"></stop>
+                          <stop offset="100%" stop-color="#1C1C1C"></stop>
+                      </linearGradient>
+                      <title id="icon-svg-title-DownTriangle">Down Triangle icon</title>
+                      <desc id="icon-svg-desc-DownTriangle">It is an icon with title Down Triangle</desc>
+                      
+                    
+                  </svg></i></span><span class="sc-4tpsxe-9 kqXlKR">Order</span>
+              </div>
+              <div>
+                <span style="color: black;">Subtotal: $</span><span class="total-cart" style="color: black;"></span>
+                  <button role="button" tabindex="0" aria-disabled="false" class="sc-1kx5g6g-1 elxuhW">
+                      
+                          <div class="cart-buttons" id="cart_buttons"><button type="button" class="btn btn-primary view-cart" data-toggle="modal" data-target="#cart">View Cart (<span class="total-count"></span>)</button><button class="clear-cart btn btn-danger" onclick="clearcartbutton();">Clear Cart</button></div>
+                        
+                      
+                  </button>
+              </div>
+          </div>
+      </div>
+</section>
+
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: black;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="show-cart table" style="color: black;">
+          
+        </table>
+        <div style="color: black;">Total price: $<span class="total-cart" style="color: black;"></span> <span>  <label for="fname" class='table-number'>Table Number:  <input type="text" id="tablenumber" name="tname"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" maxlength="4"  required></label>
+          </span></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="color: black;">Close</button>
+        <button type="button" class="btn btn-primary" id="ordernow" onclick="notifysend();">Order now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <footer class="panel-footer" style="color: white;">
+    <div class="container">
+    <div class="row">  
+    <section id="address" class="col-sm-4">
+    <span>Address</span><br>
+    A-92/2, A-Block, Middle circle 
+    Connought Place, Rajiv Chowk,
+    Delhi-110016
+  
+    <!-- <hr class="visible-xs"> -->
+    </section>
+  
+    <section class="col-sm-4" id="social">
+      <div class="social-media">
+        
+              <a href="" class="icon" style="color:#104a8e">
+                  <i class="fab fa-facebook fa-2x"></i>
+              </a>
+         
+            <a class="icon" href="">
+                <img class="zomato" src="https://b.zmtcdn.com/images/logo/zomato_flat_bg_logo.svg" width="30px">
+            </a>
+         
+              <a href="" class="icon"  style="color:#bc2a8d; margin-left: 12px;">
+                  <i class="fab fa-instagram fa-2x"></i>
+              </a> 
+        
+      </div>
+    </section>
+    
+    <section id="contact" class="col-sm-4r">
+    <span>Contact us:</span><br>
+    <p>+91-22563880, 9836290083</p>
+    <span>Or Write us at:</span><br>
+    <p>www.TheRestroKitchen.com</p>
+    </section>
+    
+  </div>
+    <div class="text-center" style="font-family: 'Arimo', sans-serif; font-size: 1.2em;">&copy;Copyright RESTRO 2020</div>
+    </div>
+  
+    <div id="lati" style="color: #222;z-index: -10;visibility:hidden;background-color: #222;"></div>
+    <div id="longi" style="color: #222;z-index: -10;visibility:hidden;background-color: #222"></div>
+</footer>
+
+
+<script src="js/panel.js"></script>
+<script>
+  function cartbottomshow()
+  {
+    var countval=JSON.parse(sessionStorage.getItem('shoppingCart'));
+    var sum=0;
+    for(i in countval)
+    {
+        sum=sum+countval[i].count;
+    }
+
+    if(sum>0)
+    {
+      document.querySelector(".fDVHVC").style.display="block";
+    }
+
+    else if(sum<=0)
+    {
+      document.querySelector(".fDVHVC").style.display="none";
+    }
+  }
+</script>
+
+<script>
+
+    AOS.init({
+  duration: 1200,
+  once:true
+});
+
+    </script>
+    <script>
+
+
+      function showalert()
+{
+  
+
+  var checkbox1 = document.getElementById('toggle');
+  var category = document.querySelector(".short_name").innerHTML;
+  var topname=document.getElementById('menu-categories-title').innerHTML;
+  //var instructions=document.getElementById('specialinst').innerHTML;
+var menu1 = document.getElementById('menu1');
+var menu2 = document.getElementById('menu2');
+
+//removing number from category name
+category=category.replace(/[0-9]/g, '');
+
+
+
+
+checkbox1.onchange = function () {
+  if (checkbox1.checked) {
+   
+    
+     $(".menu-item-tile").remove();
+
+     $dc.loadVegItems(category,topname,'v');
+    
+    //const menuitemdesc1 = document.querySelectorAll(".menu-item-details");
+    // for (var i = 0; i < menuitemdesc.length; i++) 
+    // {
+    //  var matchvar= menuitemdesc1[i].innerHTML;
+    //  var res = matchvar.match(/chicken/gi);
+    //  var res1=matchvar.match(/beef/gi);
+    //  result=checkstring(res,res1);
+    //  if(result==true)
+    //  {
+    //   menuitemdesc[i].style.visibility=;
+
+    //  }
+
+   
+    // }
+
+
+    
+  } 
+  
+  else {
+  
+   // const menuitemdesc2 = document.querySelectorAll(".menu-item-tile");
+  //   var category = document.querySelector(".short_name").innerHTML;
+  //   var topname=document.getElementById('menu-categories-title').innerHTML;
+  // var instructions=document.getElementById('specialinst').innerHTML;
+   // category=category.replace(/[0-9]/g, '');
+    // for (var i = 0; i < menuitemdesc2.length; i++)
+    // {
+    //   menuitemdesc2[i].style.visibility='visible';
+    // }
+    
+    $(".menu-item-tile").remove();
+    console.log("andar");
+
+    $dc.loadVegItems(category,topname,'b');
+  }
+};
+
+function checkstring(res,res1)
+{
+    if(res==null&&res1!=null)
+    {
+        return true;
+    }
+
+    else if(res!=null&&res1==null)
+    {
+        return true;
+    }
+    else if(res!=null&&res1!==null)
+    {
+        return true;
+    }
+
+    else if(res==null&&res1==null)
+    {
+        return false;
+    }
+}
+
+}
+
+
+    </script>
+  
+    <script>
+
+        
+     
+      displayCart();
+
+      function addtocartbutton(names,prices) {
+     event.preventDefault();
+     var name = names;
+     prices=prices.split("$")[1];
+     var price = Number(prices);
+     shoppingCart.addItemToCart(name, price, 1);
+     displayCart();
+
+    //  var classes=document.querySelector(".fDVHVC").className;
+    //  classes=classes.replace(new RegExp('cartbottom','g'),"showcartbottom");
+    // document.querySelector(".fDVHVC").className=classes;
+
+    document.querySelector(".fDVHVC").style.display="block";
+     
+      }
+   
+   // Clear items
+ function clearcartbutton() {
+     shoppingCart.clearCart();
+     displayCart();
+     document.querySelector('.fDVHVC').style.display="none";
+   }
+   
+ 
+   function displayCart() {
+     var cartArray = shoppingCart.listCart();
+     
+     var output = "";
+     for(var i in cartArray) {
+        
+        var msd=cartArray[i].name;
+       output += "<tr>"
+         + "<td>" + cartArray[i].name + "</td>" 
+         + "<td>(" + cartArray[i].price + ")</td>"
+         + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' onclick='minusitem(\""+msd+"\");' data-name=" + cartArray[i].name + ">-</button>"
+         + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+         + "<button class='plus-item btn btn-primary input-group-addon' onclick='plusitem(\""+msd+"\");' data-name=" + cartArray[i].name + ">+</button></div></td>"
+         + "<td><button class='delete-item btn btn-danger' onclick='delitem(\""+msd+"\");'  data-name='" + cartArray[i].name + "'>X</button></td>"
+         + " = " 
+         + "<td>" + cartArray[i].total + "</td>"   
+         +  "</tr>";
+     }
+     $('.show-cart').html(output);
+     $('.total-cart').html(shoppingCart.totalCart());
+     $('.total-count').html(shoppingCart.totalCount());
+   }
+   
+ 
+ function delitem(nam)
+ {
+     shoppingCart.removeItemFromCartAll(nam);
+      displayCart();
+      cartbottomshow();
+
+ }
+ 
+ function minusitem(namer)
+ {
+      shoppingCart.removeItemFromCart(namer);
+     displayCart();
+     cartbottomshow();
+
+ }
+   
+   // -1
+  //  $('.show-cart').on("click", ".minus-item", function(event) {
+  //    var name = $(this).data('name')
+  //    shoppingCart.removeItemFromCart(name);
+  //    displayCart();
+  //  })
+
+
+   // +1
+  //  $('.show-cart').on("click", ".plus-item", function(event) {
+  //    var name = $(this).data('name')
+  //    shoppingCart.addItemToCart(name);
+  //    displayCart();
+  //  })
+
+  function plusitem(namo)
+  {
+    shoppingCart.addItemToCart(namo);
+      displayCart();
+  }
+   
+   // Item count input
+   $('.show-cart').on("change", ".item-count", function(event) {
+      var name = $(this).data('name');
+      var count = Number($(this).val());
+     shoppingCart.setCountForItem(name, count);
+     displayCart();
+     
+   });
+   
+   
+ </script>
+        <script>
+            //for stars
+    
+            $(document).ready(function(){
+        // Check Radio-box
+        $(".rating input:radio").attr("checked", false);
+    
+        $('.rating input').click(function () {
+            $(".rating span").removeClass('checked');
+            $(this).parent().addClass('checked');
+        });
+    
+        $('input:radio').change(
+          function(){
+            var userRating = this.value;
+           
+            
+        }); 
+    });
+        </script>
+    <script>
+
+        function resetForms() 
+        {
+            document.getElementById('form_rel').reset();
+        }
+            
+            
+        </script>
+
+  
+
+    <script>
+   function spinnerfunc()
+    {
+         var name=document.getElementById("uname").value;
+        var email=document.getElementById("emails").value;
+        var radios = document.querySelectorAll('input[type="radio"]:checked');
+        
+        if(email===""||name==="")
+        {
+            return;
+
+
+        }  
+
+        if(radios.length===0)
+        {
+            return alert("Please Submit Your Feedback!!s")
+        }
+        else{
+        
+        document.getElementsByClassName("loader")[0].style.display = "block";
+        }
+
+    }
+
+   function spinnerfunc1()
+    {
+         
+        document.getElementsByClassName("loader")[0].style.display = "block";
+
+    }
+
+/*
+
+    function spinnerfunc()
+    {
+         
+        document.getElementsByClassName("loader")[0].style.display = "block";
+    
+
+       var ok=setInterval(myTimer, 2000);
+
+        function myTimer() 
+        {
+  
+            window.open("menu-categories.html","_self");
+}
+
+    }
+
+ function spinnerfunc2()
+    {
+         
+        document.getElementsByClassName("loader")[0].style.display = "block";
+    
+
+       var ok=setInterval(myTimer, 2000);
+
+        function myTimer() 
+        {
+  
+            window.open("single-category.html","_self");
+}
+
+    }
+
+     function spinnerfunc3()
+    {
+         
+        document.getElementsByClassName("loader")[0].style.display = "block";
+    
+
+       var ok=setInterval(myTimer, 2000);
+
+        function myTimer() 
+        {
+  
+            window.open("single-category.html","_self");
+}
+
+    }
+*/
+    
+        var mybutton = document.getElementById("myBtn");
+        
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  
+}
+    
+
+
+
+    </script>
+<script>
+
+    function movetoback()
+    {
+        
+        spinnerfunc1();
+        var ok=setInterval(myTimer, 2000);
+
+        
+        function myTimer() 
+        {
+            
+  
+        window.open("./index.html","_self");
+        window.clearInterval(ok);
+
+        }
+
+    }
+
+    function movetoback1()
+    {
+        
+        
+        var ok=setInterval(myTimer, 2000);
+        
+        
+        function myTimer() 
+        {
+            
+            window.open($dc.loadMenuCategories(),"_self");
+            window.clearInterval(ok);
+            
+        }
+        
+
+    }
+
+    
+    
+
+</script>  
+
+<script>
+  function notifysend()
+  {
+
+    var cartArray = shoppingCart.listCart();
+     
+     
+          var element={};
+     var carts=[];
+    //  for(var i in cartArray) 
+    //  {
+    //     // a[k]=cartArray[i].name;
+    //     // b[m]=cartArray[i].count;
+    //     // element.name = cartArray[i].name;
+    //     // element.quantity = cartArray[i].count;
+    //     // carts.push(element);
+        
+    //     // k++;
+    //     // m++;
+        
+
+    //  }
+
+     console.log("carts are:"+carts);
+     var order=JSON.parse(sessionStorage.getItem('shoppingCart'));
+
+     for (var i in order)
+     {
+      var element={};
+      element.dishname = order[i].name;
+       element.noofplates = order[i].count;
+
+      carts.push(element);
+     } 
+
+     var final_order=JSON.stringify(carts);
+     
+     
+    var SID = "AC479f0681c1f2157302af8fd300253d00";
+            var Key = "f544fd7afe6989c7445ed721de32e4aa";
+            var table=document.getElementById("tablenumber").value;
+            var cartArray = shoppingCart.listCart();
+            if(cartArray.length===0)
+            {
+              return alert("Please add atleast 1 item");
+            }
+            if(table==""||table==null)
+
+          {
+            alert("Please fill the table number");
+            return;
+          }   
+ 
+ $.ajax({
+                type: 'POST',
+                url: 'https://api.twilio.com/2010-04-01/Accounts/' + SID + '/Messages.json',
+                data: {
+                    "To" : "+918700519840",
+                    "From" : "+12052386793",
+                    "Body" : "Table No:"+table+" order is:"+final_order
+                },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader ("Authorization", "Basic " + btoa(SID + ':' + Key));
+                },
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+
+            alert("Your order has been placed.Please Wait for 15 minutes!!");
+            
+            shoppingCart.clearCart();
+            document.getElementById("tablenumber").value='';
+            displayCart();
+            cartbottomshow();
+
+       
+  }
+
+ 
+  
+</script>
+<script>
+
+
+
+navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        console.log("new script"+pos.lat);
+        console.log(pos.lng);
+      document.getElementById("lati").innerHTML=pos.lat;
+      document.getElementById("longi").innerHTML=pos.lng;
+       
+   
+       
+      })
+
+  
+ 
+  
+          
+  </script>
+
+  <script>
+    var mobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+    var valuesalert = JSON.parse(sessionStorage.getItem('alerts'));
+    if(valuesalert=='false'||valuesalert==""||valuesalert==null)
+    {
+    if (mobile) {
+        alert("Greetings!! Welcome to Restro!");    
+        sessionStorage.setItem('alerts', 'true');          
+    }
+    else{
+        alert("Greetings!! Welcome to Restro!"); 
+        sessionStorage.setItem('alerts', 'true');
+    }
+}
+
+else
+{
+    console.log("ok");
+}
+  </script>
+
+
+
+</body>
+
+ </html>   

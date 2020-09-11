@@ -1,0 +1,107 @@
+
+<div class="menu-item-tile col-md-6 col-xxs-12" id="menu-tile-cart">
+    <div class="row">
+        <div class="col-sm-5 col-xxs-5">
+            <div class="menu-item-photo">
+                <div class="short_name">{{short_name}}</div>
+                <img class="img-responsive" width="400" height="350" src="images/menu/{{catShortName}}/{{short_name}}.jpg" alt="Item">
+            </div><!--menu-item-photo-->
+        </div>
+
+        <div class="menu-item-description col-sm-7 col-xxs-7">
+            <h4>{{name}} <span class="dotted"><img src="https://img.icons8.com/color/15/000000/non-vegetarian-food-symbol.png"/></span></h4>
+            <!-- <p class="menu-item-details">
+            {{description}}
+            </p> -->
+            <div class="menu-item-price"> {{price_small}}<span> (pint)</span>
+                {{price_large}} <span>(quart)</span></div><!--end menu item price-->
+            <a href="#" data-name={{name}} data-price={{price_large}} class="add-to-cart btn btn-primary" onclick="addtocartbutton('{{name}}','{{price_large}}');">Add <span style="color: red;">+</span></a>
+            <a class="cd-btn js-cd-panel-trigger{{valueclass}}" data-panel="main" onclick="runpanel(this,'{{name}}','{{valuedesc}}');" id="know">Know More</a>
+            <div class="cd-panel cd-panel--from-right js-cd-panel-main">
+                <header class="cd-panel__header">
+                    <h1 id="headingname"></h1>
+                    <a href="#0" class="cd-panel__close js-cd-close" onclick="closepanel();">Close</a>
+                </header>
+
+                <div class="cd-panel__container">
+                    <div class="cd-panel__content text-center">
+                        <h1 class="knowmore">Know more about your food.</h1>
+                        <video width="320" height="240" id="myvideo" controls controlsList="nodownload">
+                            <source src="images/video/foodvideo.mp4" type="video/mp4">
+                        </video>
+                        <h1 class="ingredients">Ingredients</h1>
+                        <div id="panel-description"></div>
+                        <section id="home-reviews">
+                            <div class="col-sm-10 ml-auto mr-auto text-center">
+                                <h2 class="">Read what some of our customers have to say...</h2>
+                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <hr class="visible-xs" style="width: 65%;margin-left:55px">
+                                        <div class="carousel-item active">
+                                            <div class="circle">
+                                                <span class="initials">CS</span>
+                                            </div>
+                                            <p class="review-name">Catherine Parker</p>
+                                            <div class="stars">
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+                                            </div>
+                                            <p class="review-body"><i class="fa fa-quote-left" aria-hidden="true"></i>
+                                                Want to have great food? Order from this place for a great meal. Their dal makhni and laccha parantha was spectacular.
+                                                The quantity of the food was great. Must try this place.<i class="fa fa-quote-right" aria-hidden="true"></i></p>
+                                        </div>
+                                        <hr class="visible-xs" style="width: 65%;margin-left:55px">
+                                        <div class="carousel-item">
+                                            <div class="circle">
+                                                <span class="initials">JS</span>
+                                            </div>
+                                            <p class="review-name">Jeremy Skyesrost</p>
+                                            <div class="stars">
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                            </div>
+                                            <p class="review-body"><i class="fa fa-quote-left" aria-hidden="true"></i>
+                                                Want to have great food? Order from this place for a great meal. Their dal makhni and laccha parantha was spectacular.
+The quantity of the food was great. Must try this place.<i class="fa fa-quote-right" aria-hidden="true"></i>
+                                            </p> 
+                                        </div>
+                                        <hr class="visible-xs" style="width: 65%;margin-left:55px">
+                                        <div class="carousel-item">
+                                            <div class="circle">
+                                                <span class="initials">MJ</span>
+                                            </div>
+                                            <p class="review-name">Matthew Johnson</p>
+                                            <div class="stars">
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                                <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+                                            </div>
+                                            <p class="review-body"><i class="fa fa-quote-left" aria-hidden="true"></i>
+                                                Want to have great food? Order from this place for a great meal. Their dal makhni and laccha parantha was spectacular.
+The quantity of the food was great. Must try this place.<i class="fa fa-quote-right" aria-hidden="true"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div> <!-- cd-panel__content -->
+                    
+                </div> <!-- cd-panel__container -->
+
+                
+            </div> <!-- cd-panel -->
+        </div><!--End menu item description-->
+    </div>
+    <hr class="visible-xs" style="width: 65%;margin-left:55px">
+    </div>
+
+    
