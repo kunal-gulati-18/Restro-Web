@@ -1730,7 +1730,7 @@ input:checked+.slider:before {
   width: 90%;
   height: 100%;
   top: 0;
-  background-image: url(/images/knowmore7.jpg);
+  background-image: url('../images/knowmore7.jpg');
   background-size: cover;
   /* background: #dbe2e9; */
   z-index: 1;
